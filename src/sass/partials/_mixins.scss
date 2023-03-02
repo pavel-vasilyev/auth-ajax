@@ -1,0 +1,12 @@
+@mixin clear {
+    margin: 0;
+    padding: 0;
+}
+@mixin clear-list {
+    @include clear;
+    list-style: none;
+}
+@mixin google-font-load($name) {
+    @import url(https://fonts.googleapis.com/css?family=#{$name});
+}
+@include google-font-load(Roboto);

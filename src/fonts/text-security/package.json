@@ -1,0 +1,74 @@
+{
+  "_from": "text-security@^3.2.1",
+  "_id": "text-security@3.2.1",
+  "_inBundle": false,
+  "_integrity": "sha512-MjDQ3lyLeLqcGqZfQCZ6kvjQiuNfJaicdgIczPJDtD4tj0vIPT8WwIOKTi8wgXCVS/F1WJmapO3SppXemrwbIA==",
+  "_location": "/text-security",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "text-security@^3.2.1",
+    "name": "text-security",
+    "escapedName": "text-security",
+    "rawSpec": "^3.2.1",
+    "saveSpec": null,
+    "fetchSpec": "^3.2.1"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/text-security/-/text-security-3.2.1.tgz",
+  "_shasum": "4c3e4eb3a4a1c76c27c144b8ffe0590f24feecdd",
+  "_spec": "text-security@^3.2.1",
+  "_where": "C:\\OpenServer\\domains\\auth-ajax",
+  "author": {
+    "name": "Oskari Noppa"
+  },
+  "bugs": {
+    "url": "https://github.com/noppa/text-security/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Cross-browser alternative to -webkit-text-security",
+  "files": [
+    "text-security-circle-compat.eot",
+    "text-security-circle-compat.ttf",
+    "text-security-circle.css",
+    "text-security-circle.woff2",
+    "text-security-circle-compat.woff2",
+    "text-security-disc-compat.eot",
+    "text-security-disc-compat.ttf",
+    "text-security-disc.css",
+    "text-security-disc.woff2",
+    "text-security-disc-compat.woff2",
+    "text-security-square-compat.eot",
+    "text-security-square-compat.ttf",
+    "text-security-square.css",
+    "text-security-square.woff2",
+    "text-security-square-compat.woff2",
+    "text-security.css"
+  ],
+  "homepage": "https://github.com/noppa/text-security#readme",
+  "keywords": [
+    "-webkit-text-security",
+    "conceal",
+    "hide",
+    "dots",
+    "password"
+  ],
+  "license": "SIL",
+  "main": "text-security.css",
+  "name": "text-security",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noppa/text-security.git"
+  },
+  "scripts": {
+    "postpublish": "git clean -fd",
+    "prepublishOnly": "cp ./output/* .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.2.1"
+}
