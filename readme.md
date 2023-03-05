@@ -6,13 +6,13 @@ Bootstrap and Jquery connect in package component files: `head.blade.php` and `j
 
 ## Installation
 
-You’ll have to make a slight adjustment to composer.json file of your project . Open the file and update include the following array somewhere in the object:
+You’ll have to make a slight adjustment to `composer.json` file of your project . Open the file and update include the following array somewhere in the object:
 
 ```php
 "repositories": [
     {
         "type": "vcs",
-        "url": "https://github.com/fhsinchy/inspire"
+        "url": "https://github.com/pavel-vasilyev/auth-ajax"
     }
 ]
 ```
