@@ -17,13 +17,6 @@ You’ll have to make a slight adjustment to `composer.json` file of your projec
 ],
 ```
 
-In the same composer.json file in section "autoload" > "psr-4" add:
-
-```php
-"PavelVasilyev\\AuthAjax\\": "packages/pavel-vasilyev/auth-ajax/src/"
-```
-
-
 Require this package with composer:
 
 ```shell
@@ -72,7 +65,7 @@ Define asset compilation commands in `webpack.js`:
 'resources/js/app.js',
 'resources/vendor/auth-ajax/js/app.js',
 'resources/vendor/auth-ajax/js/auth.js',
-], `public/js/app.js`)
+], 'public/js/app.js')
 ```
 This assumes that `app.scss` and `app.js` are your own Laravel app files. They are first in line.
 
