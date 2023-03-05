@@ -39,7 +39,7 @@ PavelVasilyev\AuthAjax\Providers\PackageServiceProvider::class,
 Publish assets (js, css) to the `resources/vendor` directory, update the `app/models/user.php` model, publish translations `en.json` to the application's `lang` directory. The --force flag is required to overwrite `user.php`:
 
 ```php
-php artisan vendor:publish --tag=sass --tag=js --tag=user --tag=fonts --tag=middleware --force
+php artisan vendor:publish --provider="PavelVasilyev\AuthAjax\Providers\PackageServiceProvider" --tag=sass --tag=js --tag=user --tag=fonts --tag=middleware --force
 ```
 
 Use package migration to make changes to the `users` table:
