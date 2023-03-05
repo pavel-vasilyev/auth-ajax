@@ -23,12 +23,6 @@ Require this package with composer:
 composer require pavel-vasilyev/auth-ajax:dev-main
 ```
 
-Package doesn't Auto-Discovery, so require you to manually add the ServiceProvider to the 'providers' array in `config/app.php`:
-
-```php
-PavelVasilyev\AuthAjax\Providers\PackageServiceProvider::class,
-```
-
 Publish assets (js, css) to the `resources/vendor` directory, update the `app/models/user.php` model, publish translations `en.json` to the application's `lang` directory. The --force flag is required to overwrite `user.php`:
 
 ```php
