@@ -16,6 +16,13 @@
             "email": "vasilyevpn@yandex.ru"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PavelVasilyev\\AuthAjax\\Providers\\PackageServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
