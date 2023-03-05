@@ -1,6 +1,7 @@
 {
     "name": "pavel-vasilyev/auth-ajax",
-    "description": "laravel ajax authentication",
+    "description": "laravel authentication via ajax",
+    "license": "MIT",
     "require": {
         "doctrine/dbal": "3.4"
     },
@@ -11,8 +12,10 @@
     },
     "authors": [
         {
-            "name": "Pavel",
+            "name": "Pavel Vasilyev",
             "email": "vasilyevpn@yandex.ru"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
