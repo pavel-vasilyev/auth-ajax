@@ -6,10 +6,21 @@ Bootstrap and Jquery connect in package component files: `head.blade.php` and `j
 
 ## Installation
 
+You’ll have to make a slight adjustment to composer.json file of your project . Open the file and update include the following array somewhere in the object:
+
+```php
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/fhsinchy/inspire"
+    }
+]
+```
+
 Require this package with composer:
 
 ```shell
-composer require pavel-vasilyev/auth-ajax
+composer require pavel-vasilyev/auth-ajax:dev-main
 ```
 
 Package doesn't Auto-Discovery, so require you to manually add the ServiceProvider to the 'providers' array in `config/app.php`:
