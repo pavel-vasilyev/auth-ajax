@@ -17,6 +17,13 @@ You’ll have to make a slight adjustment to composer.json file of your project 
 ]
 ```
 
+In the same composer.json file in section "autoload" > "psr-4" add:
+
+```php
+"PavelVasilyev\\AuthAjax\\": "packages/pavel-vasilyev/auth-ajax/src/"
+```
+
+
 Require this package with composer:
 
 ```shell
