@@ -14,7 +14,7 @@ You’ll have to make a slight adjustment to `composer.json` file of your projec
         "type": "vcs",
         "url": "https://github.com/pavel-vasilyev/auth-ajax"
     }
-]
+],
 ```
 
 In the same composer.json file in section "autoload" > "psr-4" add:
