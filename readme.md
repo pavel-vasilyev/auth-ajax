@@ -4,7 +4,7 @@ This package complements the basic Laravel 9 authentication classes. It allows y
 
 Bootstrap and Jquery connect to the project using component files `head.blade.php` and `js-connect.blade.php` in `pavel-vasilyev/auth-ajax/src/views/components/layouts` directory.
 
-Tested in Laravel 9 with PHP 8.0
+Tested in Laravel 9 with PHP 8.0. Vite replaced with Webpack.
 
 ## Installation
 
