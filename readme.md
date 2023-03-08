@@ -57,7 +57,7 @@ Define asset compilation commands in `webpack.js`:
 'resources/vendor/auth-ajax/js/auth.js',
 ], 'public/js/app.js')
 ```
-This assumes that `app.scss` and `app.js` are your own Laravel app files. They are first in line.
+This assumes that `resources/sass/app.scss` and `resources/js/app.js` are your own Laravel app files. They are first in line.
 
 Compile Assets: 
 ```php
