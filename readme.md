@@ -21,30 +21,31 @@ composer require pavel-vasilyev/auth-ajax:dev-main
 
 Publish assets (js, css) to the `resources/vendor` directory, update the `app/models/user.php` model, publish translations `en.json` to the application's `lang` directory. The --force flag is required to overwrite `user.php`:
 
-```php
+```shell
 php artisan vendor:publish --provider="PavelVasilyev\AuthAjax\Providers\PackageServiceProvider" --tag=sass --tag=js --tag=user --tag=fonts --tag=middleware --force
 ```
 
 Use package migration to make changes to the `users` table:
 
-```php
+```shell
 php artisan migrate
 ```
 
 Include the package components in the application view files. Of course, it is better to do this in the general layout:
 - in the `<head>` block:
-```php
+```shell
 <x-auth-ajax::Layouts.head />
 ```
 - at the end of the `<body>` block:
-```php
+```shell
 <x-auth-ajax::Layouts.modal />
 <x-auth-ajax::Layouts.head-auth />
 <x-auth-ajax::Layouts.js-connect />
 ```
 
 Define asset compilation commands in `webpack.js`:
-```php
+
+```shell
 .sass('resources/sass/app.scss',
 'public/css'
 )
@@ -60,7 +61,7 @@ Define asset compilation commands in `webpack.js`:
 This assumes that `resources/sass/app.scss` and `resources/js/app.js` are your own Laravel app files. They are first in line.
 
 Compile Assets: 
-```php
+```shell
 npm run dev
 ```
 You can now open the project in your browser. Note: the buttons of the authentication block should be at the top right.
