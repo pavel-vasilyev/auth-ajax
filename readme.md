@@ -1,23 +1,21 @@
 ## Laravel authentication via AJAX
 
+##Introduction
+
 This package complements the basic Laravel 9 authentication classes. It allows you to perform authentication functions using AJAX. Accordingly, there is no need to use separate pages with forms. User interaction takes place through modal windows. Bootstrap and Jquery are used for this purpose. The [Doctrine DBAL](https://github.com/doctrine/dbal) package must also be connected during the development phase. This defined in the "require" section of package's composer.json file.
 
-Bootstrap and Jquery connect to the project using component files: `head.blade.php` and `js-connect.blade.php` in `pavel-vasilyev/auth-ajax/src/views/components/layouts` directory.
+Bootstrap and Jquery connect to the project using component files `head.blade.php` and `js-connect.blade.php` in `pavel-vasilyev/auth-ajax/src/views/components/layouts` directory.
+
+Tested in Laravel 9 with PHP 8.0
 
 ## Installation
 
-You’ll have to make a slight adjustment to `composer.json` file of your project . Open the file and update include the following array somewhere in the object:
+First you need to add (update) a section of the repositories in the `composer.json` file of your project, specifying a link to the package repository:
 
-```php
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/pavel-vasilyev/auth-ajax"
-    }
-],
+```shell
+composer config repositories.pavel-vasilyev/auth-ajax git https://github.com/pavel-vasilyev/auth-ajax
 ```
-
-Require this package with composer:
+You can now install the package:
 
 ```shell
 composer require pavel-vasilyev/auth-ajax:dev-main
@@ -36,11 +34,11 @@ php artisan migrate
 ```
 
 Include the package components in the application view files. Of course, it is better to do this in the general layout:
-- in the `head` block:
+- in the `<head>` block:
 ```php
 <x-auth-ajax::Layouts.head />
 ```
-- at the end of the `body` block:
+- at the end of the `<body>` block:
 ```php
 <x-auth-ajax::Layouts.modal />
 <x-auth-ajax::Layouts.head-auth />
