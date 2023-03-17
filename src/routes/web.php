@@ -7,8 +7,7 @@ use PavelVasilyev\AuthAjax\Controllers\Auth\AjaxPasswordResetController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', [\App\Http\Controllers\HomeController::class, 'show'])->name('home');
-
+    //Route::get('/', [\App\Http\Controllers\HomeController::class, 'show'])->name('home');
     Route::post('/auth', [AjaxAuthSessionController::class,'handle']);
     Route::get('/login', function(){
         return redirect(route('home'));
