@@ -64,4 +64,4 @@ Compile Assets:
 ```shell
 npm run dev
 ```
-You can now open the project in your browser. Note: the buttons of the authentication block should be at the top right.
+You can now open your project in the browser. Note: the buttons of the authentication block should be at the top right.
