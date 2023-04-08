@@ -1,77 +1,83 @@
 <?php
 
-namespace PavelVasilyev\AuthAjax\View;
+namespace App\View\Components;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\View\Component;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
-class Layout extends Component
+class layout extends Component
 {
     /**
-     * Create a new component instance.
-     *
-     * @return void
+     * Это класс компонента resources/views/components/layout.blade.php - макета, общего для всех/большинства страниц сайта
      */
-
-    protected object $request;
-    protected array $modal;
 
     /**
-     * Инициализация $pgTitle здесь в контроллере компонента обязательна!
-     * Также важно указать область видимости public.
-     *
-     * Это касается всех переменных, передаваемых в компонент при его вызове,
-     * как, например: <x-layout :pg-title="$pgTitle">
-     *
-     * Кстати, в этом примере при вызове компонента pg-title - в cebab-case (см. выше),
-     * а в классе (см. ниже) - в camelCase. Это обязательно!
-     *
-     * @var
+     * Свойство $data принимает в себя параметры (массив $data), переданные контроллером страницы в представление
+     */
+    protected array $data;
+    protected object $request;
+
+    /**
+     * Следующие свойства - параметры, обязательные для всех страниц (SEO, статистика и др.),
+     * Они будут переданы в макет resources/views/components/layout.blade.php функцией view метода render.
+     * У этих свойств область видимости обязательно должна быть public,
+     * тогда в методе render они будут переданы в функцию view АВТОМАТИЧЕСКИ
      */
 
-    public $pgTitle; // - инициализировать обязательно!
+    public int $id = 0;
+    public string $title = '';
+    public string $description = '';
+    public string $keywords = '';
+    public string $author = '';
+    public array $modal = array();
 
-
-    public function __construct(Request $request, $pgTitle)
+    /**
+     * layout constructor.
+     * @param $data
+     * Конструктор помещает принятые параметры в одноимённый массив:
+     */
+    public function __construct(Request $request, $data)
     {
         $this->request = $request;
-        $this->pgTitle = $pgTitle;
+        $this->data = $data;
     }
 
     /**
      * Get the view / contents that represent the component.
-     *
      * @return \Illuminate\Contracts\View\View|\Closure|string
+     *
+     * В методе render задействована модель Page для сбора обязательной информации о текущей странице
      */
     public function render()
     {
         /**
-         * Вывод модального окна сразу после загрузки страницы:
+         * На случай, когда сразу после загрузки страницы требуется вывести модальное окно с сообщением:
          */
         if ($this->request->session()->has('onload-modal')){
-
             $this->modal = [
                 'modalClass' => ' onload-show',
                 'modalTitle' => $this->request->session()->get('onload-modal.title'),
                 'modalBody' => $this->request->session()->get('onload-modal.message'),
             ];
-
             $this->request->session()->forget('onload-modal');
         }
 
-        /*
-         * Альтернативный вариант - через Helper без необходимости инъекции Request:
-         * if (session()->has('onload-modal')){
+        /**
+         * Вытаскиваем из БД информацию о странице:
+         */
+        $page = Page::where('category', $this->data['category'])->where('published','1')->first();
+        if (!$page) {
+            return view('errors.404'); // 404, если страница не опубликована или не существует
+        }
 
-            $this->modal = [
-                'modalClass' => ' onload-show',
-                'modalTitle' => session('onload-modal.title'),
-                'modalBody' => session('onload-modal.message'),
-            ];
+        $this->id = $page->id;
+        $this->title = $page->title;
+        $this->description = $page->description;
+        $this->keywords = $page->keywords;
+        $this->author = $page->author;
 
-            session()->forget('onload-modal');
-        }*/
-
-        return view('components.layout', $this->modal);
+        return view('components.layout');
     }
 }
