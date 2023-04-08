@@ -13,8 +13,8 @@ class Layout extends Component
      * @return void
      */
 
-    protected $request;
-    protected $modal = array();
+    protected object $request;
+    protected array $modal;
 
     /**
      * Инициализация $pgTitle здесь в контроллере компонента обязательна!
