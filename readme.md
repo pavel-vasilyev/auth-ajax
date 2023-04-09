@@ -2,7 +2,7 @@
 
 This package complements the basic Laravel 9 authentication classes. It allows you to perform authentication functions using AJAX. Accordingly, there is no need to use separate pages with forms. User interaction takes place through modal windows. Bootstrap and Jquery are used for this purpose. The [Doctrine DBAL](https://github.com/doctrine/dbal) package must also be connected during the development phase. This defined in the "require" section of package's composer.json file.
 
-Bootstrap and Jquery connect to the project using component files `head.blade.php` and `js-connect.blade.php` in `pavel-vasilyev/auth-ajax/src/views/components/layouts` directory.
+Bootstrap and Jquery connect to the project using component files `in-head.blade.php` and `js-connect.blade.php`.
 
 Tested in Laravel 9 with PHP 8.0. Vite replaced with Webpack.
 
@@ -19,28 +19,16 @@ You can now install the package:
 composer require pavel-vasilyev/auth-ajax:dev-main
 ```
 
-Publish assets (js, css) to the `resources/vendor` directory, update the `app/models/user.php` model, publish translations `en.json` to the application's `lang` directory. The --force flag is required to overwrite `user.php`:
+Publish assets (js, css) to the `resources/vendor` directory, views, components, models, translations `en.json`. The --force flag is required to overwrite `user.php`:
 
 ```shell
-php artisan vendor:publish --provider="PavelVasilyev\AuthAjax\Providers\PackageServiceProvider" --tag=sass --tag=js --tag=user --tag=fonts --tag=middleware --force
+php artisan vendor:publish --provider="PavelVasilyev\AuthAjax\Providers\PackageServiceProvider" --all --force
 ```
 
 Use package migration to make changes to the `users` table:
 
 ```shell
 php artisan migrate
-```
-
-Include the package components in the application view files. Of course, it is better to do this in the general layout:
-- in the `<head>` block:
-```shell
-<x-auth-ajax::Layouts.head />
-```
-- at the end of the `<body>` block:
-```shell
-<x-auth-ajax::Layouts.modal />
-<x-auth-ajax::Layouts.head-auth />
-<x-auth-ajax::Layouts.js-connect />
 ```
 
 Define asset compilation commands in `webpack.js`:
@@ -64,4 +52,14 @@ Compile Assets:
 ```shell
 npm run dev
 ```
+
+Put in your `route/web.php` file as an example route `example`:
+```shell
+Route::get('/example', [\App\Http\Controllers\ExampleController::class, 'show']);
+```
+Use the controller `app/Http/Controllers/ExampleController.php` and view-file `resource/views/example.blade.php` as an example for your pages.
+
+Also use the layout class `app/View/Components/layouts/main.php` to get information about the page from the database.
+Define in this class the fields you need in the corresponding database table.
+
 You can now open the project in your browser. Note: the buttons of the authentication block should be at the top right.

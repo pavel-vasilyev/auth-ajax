@@ -4,12 +4,11 @@ namespace PavelVasilyev\AuthAjax\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use PavelVasilyev\AuthAjax\Notifications\VerifyEmailNotification;
-use PavelVasilyev\AuthAjax\Notifications\NewVerifyEmailNotification;
+use App\Notifications\NewVerifyEmailNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+//use Illuminate\Support\Facades\Mail;
 //use App\Mail\Auth\AjaxVerifyEmail;
 
 class AjaxVerifyEmailController extends Controller
@@ -17,8 +16,8 @@ class AjaxVerifyEmailController extends Controller
     // Импортируем трейт с методом respond (отправка ответа в браузер для вывода в модальном окне):
     use AjaxRespond;
 
-    public $request;
-    public $user;
+    public object $request;
+    public array $user;
 
     public function __construct(Request $request)
     {
