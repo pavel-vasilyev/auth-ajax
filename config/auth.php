@@ -1,13 +1,6 @@
 <?php
 
 return [
-    /*'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => PavelVasilyev\AuthAjax\Models\User::class,
-        ],
-    ],*/
-
     'login' => [
         'min' => 2,
         'max' => 20

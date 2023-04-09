@@ -23,11 +23,11 @@ class PackageServiceProvider extends ServiceProvider
         Blade::component('modal', Modal::class);
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/../views', 'auth-ajax');
-        $this->loadJsonTranslationsFrom(__DIR__.'/../lang');
-        /*$this->publishes([
+        //$this->loadViewsFrom(__DIR__.'/../views', 'auth-ajax');
+        //$this->loadJsonTranslationsFrom(__DIR__.'/../lang');
+        $this->publishes([
             __DIR__.'/../lang' => $this->app->langPath(),
-        ], 'lang');*/
+        ], 'lang');
         $this->publishes([
             __DIR__.'/../Models' => app_path('Models'),
         ], 'user');
@@ -43,5 +43,26 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Middleware' => app_path('Http/Middleware'),
         ], 'middleware');
+        $this->publishes([
+            __DIR__.'/../View/Components/layouts' => app_path('View/Components/layouts'),
+        ], 'layouts');
+        $this->publishes([
+            __DIR__.'/../views/components' => resource_path('views/components'),
+        ], 'components');
+        $this->publishes([
+            __DIR__.'/../views/auth' => resource_path('views/auth'),
+        ], 'forms');
+        $this->publishes([
+            __DIR__.'/../views/example.blade.php' => resource_path('views/example.blade.php'),
+        ], 'views');
+        $this->publishes([
+            __DIR__.'/../views/errors' => resource_path('views/errors'),
+        ], 'errors');
+        $this->publishes([
+            __DIR__.'/../Notifications' => app_path('Notifications'),
+        ], 'notifications');
+        $this->publishes([
+            __DIR__.'/../Controllers/ExampleController.php' => app_path('Http/Controllers/ExampleController.php'),
+        ], 'controller');
     }
 }

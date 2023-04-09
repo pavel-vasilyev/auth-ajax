@@ -1,6 +1,6 @@
 <?php
 
-namespace PavelVasilyev\AuthAjax\Notifications;
+namespace App\Notifications;
 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
