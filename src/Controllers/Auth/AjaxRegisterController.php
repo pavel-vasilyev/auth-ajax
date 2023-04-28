@@ -57,7 +57,7 @@ class AjaxRegisterController extends Controller
     // Вывод формы регистрации:
     public function formRegistration()
     {
-        $message = view('auth-ajax::auth.register-form')->render();
+        $message = view('auth.register-form')->render();
         return $this->respond( true, 'Регистрация на сайте', $message );
     }
 
@@ -97,7 +97,7 @@ class AjaxRegisterController extends Controller
 
         if ($validator->fails()) {
             $old = $this->request->flash();
-            $message = view('auth-ajax::auth.register-form')->withErrors($validator->errors())->withInput($old)->render();
+            $message = view('auth.register-form')->withErrors($validator->errors())->withInput($old)->render();
             return $this->respond( false, 'Регистрация на сайте', $message );
         }
 

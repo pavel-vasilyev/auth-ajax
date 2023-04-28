@@ -24,7 +24,7 @@ class AjaxPasswordResetController extends Controller
 
     public function forgotPasswordForm()
     {
-        $message = view('auth-ajax::auth.forgot-password-form')->render();
+        $message = view('auth.forgot-password-form')->render();
         return $this->respond( true, 'Сброс пароля', $message );
     }
 
@@ -35,7 +35,7 @@ class AjaxPasswordResetController extends Controller
         if(empty($email)){
             $errors['email'] = ['message' => __('Enter the email specified during registration')];
             $old = $request->flash();
-            $message = view('auth-ajax::auth.forgot-password-form')->withErrors($errors)->withInput($old)->render();
+            $message = view('auth.forgot-password-form')->withErrors($errors)->withInput($old)->render();
             return $this->respond( false, 'Сброс пароля', $message );
         }
 
@@ -44,7 +44,7 @@ class AjaxPasswordResetController extends Controller
         if(!$user){
             $errors = ['email' => ['message' => __('No user with such email address found')]];
             $old = $request->flash();
-            $message = view('auth-ajax::auth.forgot-password-form')->withErrors($errors)->withInput($old)->render();
+            $message = view('auth.forgot-password-form')->withErrors($errors)->withInput($old)->render();
             return $this->respond( false, 'Сброс пароля', $message );
         }
         // Reset-link sending:
@@ -57,7 +57,7 @@ class AjaxPasswordResetController extends Controller
             return $this->respond( true, 'Сброс пароля', $message );
         } else {
             $old = $request->flash();
-            $message = view('auth-ajax::auth.forgot-password-form')->withErrors(['email' => __($status)])->withInput($old)->render();
+            $message = view('auth.forgot-password-form')->withErrors(['email' => __($status)])->withInput($old)->render();
             return $this->respond( false, 'Сброс пароля', $message );
         }
     }
@@ -90,7 +90,7 @@ class AjaxPasswordResetController extends Controller
         }
         // Если всё в порядке:
         // Уведомление - в сессию. При редиректе оно попадёт в код modal в представлении, js его увидит и запустит modal сразу после загрузки страницы:
-        $message = view('auth-ajax::auth.reset-password-form', ['request' => $request])->render();
+        $message = view('auth.reset-password-form', ['request' => $request])->render();
         $request->session()->put('onload-modal', [
             'title' => 'Сброс пароля',
             'message' => $message
@@ -119,7 +119,7 @@ class AjaxPasswordResetController extends Controller
 
         if ($validator->fails()) {
             $old = $request->flash();
-            $message = view('auth-ajax::auth.reset-password-form', ['request' => $request])->withErrors($validator->errors())->withInput($old)->render();
+            $message = view('auth.reset-password-form', ['request' => $request])->withErrors($validator->errors())->withInput($old)->render();
             return $this->respond( false, 'Сброс пароля', $message );
         }
 

@@ -26,7 +26,7 @@ class AjaxAuthSessionController extends Controller
     // Импортируем трейт с методом respond (отправка ответа в браузер для вывода в модальном окне):
     use AjaxRespond;
 
-    public Request $request;
+    public object $request;
     protected string $loginType;
     protected string $userEmail;
     protected string $userLogin;
@@ -80,7 +80,7 @@ class AjaxAuthSessionController extends Controller
      */
     public function formLogout()
     {
-        $message = view('auth-ajax::auth.logout-form')->render();
+        $message = view('auth.logout-form')->render();
         return $this->respond( true, __('Logout name'), $message );
     }
 
@@ -107,7 +107,7 @@ class AjaxAuthSessionController extends Controller
      */
     protected function formLogin(): \Illuminate\Http\JsonResponse
     {
-        $message = view('auth-ajax::auth.login-form', ['toPath' => $this->request->input('toPath')])->render();
+        $message = view('auth.login-form', ['toPath' => $this->request->input('toPath')])->render();
         return $this->respond( true, __('Login title'), $message );
     }
 
@@ -124,7 +124,7 @@ class AjaxAuthSessionController extends Controller
 
         if( !empty($errors) ){
             $old = $this->request->flash();
-            $message = view('auth-ajax::auth.login-form')->withErrors($errors)->withInput($old)->render();
+            $message = view('auth.login-form')->withErrors($errors)->withInput($old)->render();
             return $this->respond( false, __('Login title'), $message );
         }
 
@@ -143,7 +143,7 @@ class AjaxAuthSessionController extends Controller
         if(!$user){
             $errors = ['warning' => ['message' => __('Incorrect credentials')]];
             $old = $this->request->flash();
-            $message = view('auth-ajax::auth.login-form')->withErrors($errors)->withInput($old)->render();
+            $message = view('auth.login-form')->withErrors($errors)->withInput($old)->render();
             return $this->respond( false, __('Login title'), $message );
         }
 
@@ -175,7 +175,7 @@ class AjaxAuthSessionController extends Controller
         // Authentication is false:
         $errors = ['warning' => ['message' => __('Incorrect credentials')]];
         $old = $this->request->flash();
-        $message = view('auth-ajax::auth.login-form')->withErrors($errors)->withInput($old)->render();
+        $message = view('auth.login-form')->withErrors($errors)->withInput($old)->render();
         return $this->respond( false, __('Login title'), $message );
     }
 
@@ -203,7 +203,7 @@ class AjaxAuthSessionController extends Controller
             ],
             'limiter' => ['message' => $seconds]
         ];
-        return view('auth-ajax::auth.login-form')->withErrors($errors)->render();
+        return view('auth.login-form')->withErrors($errors)->render();
     }
 
     /**
