@@ -23,8 +23,6 @@ class PackageServiceProvider extends ServiceProvider
         Blade::component('modal', Modal::class);
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        //$this->loadViewsFrom(__DIR__.'/../views', 'auth-ajax');
-        //$this->loadJsonTranslationsFrom(__DIR__.'/../lang');
         $this->publishes([
             __DIR__.'/../../database/seeders' => database_path('seeders'),
         ], 'seed');
