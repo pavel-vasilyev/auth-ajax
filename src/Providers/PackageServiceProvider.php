@@ -26,6 +26,9 @@ class PackageServiceProvider extends ServiceProvider
         //$this->loadViewsFrom(__DIR__.'/../views', 'auth-ajax');
         //$this->loadJsonTranslationsFrom(__DIR__.'/../lang');
         $this->publishes([
+            __DIR__.'/../../database/seeders' => database_path('seeders'),
+        ], 'seed');
+        $this->publishes([
             __DIR__.'/../lang' => $this->app->langPath(),
         ], 'lang');
         $this->publishes([

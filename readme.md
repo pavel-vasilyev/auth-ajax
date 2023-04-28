@@ -34,7 +34,7 @@ php artisan migrate
 Execute the db:seed Artisan command to seed `pages` table:
 
 ```shell
-php artisan db:seed --class=PageSeeder
+php artisan db:seed --class=PageSeeder1
 ```
 
 Define asset compilation commands in `webpack.js`:
