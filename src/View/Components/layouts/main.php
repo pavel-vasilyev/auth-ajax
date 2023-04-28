@@ -54,7 +54,7 @@ class Main extends Component
         /**
         * Вытаскиваем из БД информацию о странице:
         */
-        $page = Page::where('category', $this->data['category'])->where('published','1')->first();
+        $page = Page::where('id', $this->data['id'])->where('published','1')->first();
         if (!$page) {
             return view('errors.404'); // 404, если страница не опубликована или не существует
         }
