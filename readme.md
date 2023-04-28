@@ -16,7 +16,7 @@ composer config repositories.pavel-vasilyev/auth-ajax git https://github.com/pav
 You can now install the package:
 
 ```shell
-composer require pavel-vasilyev/auth-ajax:dev-main
+composer require pavel-vasilyev/auth-ajax:dev-master
 ```
 
 Publish assets (js, css) to the `resources/vendor` directory, views, components, models, translations `en.json`. The --force flag is required to overwrite `user.php`:
@@ -29,6 +29,12 @@ Use package migration to make changes to the `users` table:
 
 ```shell
 php artisan migrate
+```
+
+Execute the db:seed Artisan command to seed `pages` table:
+
+```shell
+php artisan db:seed --class=PagesSeeder
 ```
 
 Define asset compilation commands in `webpack.js`:
