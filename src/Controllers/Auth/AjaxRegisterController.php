@@ -65,17 +65,17 @@ class AjaxRegisterController extends Controller
     public function register()
     {
         $messages = [
-            'name.required' => 'Поле :attribute обязательно к заполнению ',
+            'name.required' => 'Поле Логин обязательно к заполнению ',
             'name.alpha_dash' => 'Используйте только буквы, цифры, дефис и подчеркивание ',
             'name.regex' => 'Используйте только буквы, цифры, пробел, дефис и подчеркивание ',
             'name.min' => 'Используйте для логина не менее :min символов ',
             'name.max' => 'Используйте для логина не более :max символов ',
             'name.unique' => 'Этот логин уже занят ',
-            'email.required' => 'Поле :attribute обязательно к заполнению ',
-            'email.string' => 'Ошибка в поле :attribute',
-            'email.email' => 'Неверный формат :attribute',
-            'email.min' => 'Неверный формат :attribute',
-            'email.max' => 'Используйте для :attribute не более :max символов ',
+            'email.required' => 'Поле Email обязательно к заполнению ',
+            'email.string' => 'Ошибка в поле Email',
+            'email.email' => 'Неверный формат Email',
+            'email.min' => 'Неверный формат Email',
+            'email.max' => 'Используйте для Email не более :max символов ',
             'email.unique' => 'Укажите другой email',
             'password.required' => 'Укажите пароль ',
             'password.min' => 'Используйте для пароля не менее :min символов ',
