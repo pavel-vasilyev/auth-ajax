@@ -25,7 +25,7 @@ Publish assets (js, css) to the `resources/vendor` directory. Also publish views
 php artisan vendor:publish --provider="PavelVasilyev\AuthAjax\Providers\PackageServiceProvider" --all --force
 ```
 
-Use package migration to make changes to the `users` table:
+Use package migration to make changes to the `users` table and create `pages` table:
 
 ```shell
 php artisan migrate
