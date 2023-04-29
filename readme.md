@@ -54,11 +54,7 @@ Define asset compilation commands in `webpack.js`:
 ```
 This assumes that `resources/sass/app.scss` and `resources/js/app.js` are your own Laravel app files. They are first in line.
 
-Compile Assets: 
-```shell
-npm run dev
-```
-
+## Example route
 Put in your `route/web.php` file as an example route `example`:
 ```shell
 Route::get('/example', [\App\Http\Controllers\ExampleController::class, 'show']);
@@ -85,5 +81,9 @@ Route::middleware('auth.ajax')->group(function () {
 You can move your `'/example'` route to this closed group to make sure it works. 
 
 ## Finally
+Compile Assets:
+```shell
+npm run dev
+```
 You can now open the project in your browser. 
 Note: the buttons of the authentication block should be at the top right.
