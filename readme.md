@@ -19,7 +19,7 @@ You can now install the package:
 composer require pavel-vasilyev/auth-ajax:dev-master
 ```
 
-Publish assets (js, css) to the `resources/vendor` directory, views, components, models, translations `en.json`. The --force flag is required to overwrite `user.php`:
+Publish assets (js, css) to the `resources/vendor` directory. Also publish views, components, models, translations `en.json`. The --force flag is required to overwrite `user.php`:
 
 ```shell
 php artisan vendor:publish --provider="PavelVasilyev\AuthAjax\Providers\PackageServiceProvider" --all --force
@@ -31,7 +31,7 @@ Use package migration to make changes to the `users` table:
 php artisan migrate
 ```
 
-Execute the db:seed Artisan command to seed `pages` table:
+Execute the `db:seed` Artisan command to seed `pages` table:
 
 ```shell
 php artisan db:seed --class=PageSeeder
@@ -55,7 +55,7 @@ Define asset compilation commands in `webpack.js`:
 This assumes that `resources/sass/app.scss` and `resources/js/app.js` are your own Laravel app files. They are first in line.
 
 ## Example route
-Put in your `route/web.php` file as an example route `example`:
+Put in your `route/web.php` file as an example route `/example`:
 ```shell
 Route::get('/example', [\App\Http\Controllers\ExampleController::class, 'show']);
 ```
