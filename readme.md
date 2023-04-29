@@ -1,6 +1,6 @@
 ## Laravel authentication via AJAX
 
-This package complements the basic Laravel 9 authentication classes. It allows you to perform authentication functions using AJAX. Accordingly, there is no need to use separate pages with forms. User interaction takes place through modal windows. Bootstrap and Jquery are used for this purpose. The [Doctrine DBAL](https://github.com/doctrine/dbal) package must also be connected during the development phase. This defined in the "require" section of package's composer.json file.
+This package complements the basic Laravel 9^ authentication classes. It allows you to perform authentication functions using AJAX. Accordingly, there is no need to use separate pages with forms. User interaction takes place through modal windows. Bootstrap and Jquery are used for this purpose. The [Doctrine DBAL](https://github.com/doctrine/dbal) package must also be connected during the development phase. This defined in the "require" section of package's composer.json file.
 
 Bootstrap and Jquery connect to the project using component files `in-head.blade.php` and `js-connect.blade.php`.
 
