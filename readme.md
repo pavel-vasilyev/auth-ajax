@@ -65,7 +65,25 @@ Route::get('/example', [\App\Http\Controllers\ExampleController::class, 'show'])
 ```
 Use the controller `app/Http/Controllers/ExampleController.php` and view-file `resource/views/example.blade.php` as an example for your pages.
 
-Also use the layout class `app/View/Components/layouts/main.php` to get information about the page from the database.
+Also use the layout class `app/View/Components/layouts/main.php` to get information about the page from the database (`'pages'` table).
 Define in this class the fields you need in the corresponding database table.
 
-You can now open the project in your browser. Note: the buttons of the authentication block should be at the top right.
+## Hidden Page Routes
+
+To create a routing group available only to authenticated users, add the following line to the `$routeMiddleware` property of the `app/Http/Kernel.php` file:
+```shell
+'auth.ajax' => \App\Http\Middleware\AuthenticateAjax::class,
+```
+Now you can add a group of hidden routes to your `routes/web.php`:
+```shell
+Route::middleware('auth.ajax')->group(function () {
+
+    // ...
+
+});
+```
+You can move your `'/example'` route to this closed group to make sure it works. 
+
+## Finally
+You can now open the project in your browser. 
+Note: the buttons of the authentication block should be at the top right.
