@@ -17,7 +17,7 @@ class AjaxVerifyEmailController extends Controller
     use AjaxRespond;
 
     public object $request;
-    public array $user;
+    public object $user;
 
     public function __construct(Request $request)
     {
