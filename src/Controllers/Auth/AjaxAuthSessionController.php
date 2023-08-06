@@ -107,7 +107,8 @@ class AjaxAuthSessionController extends Controller
      */
     protected function formLogin(): \Illuminate\Http\JsonResponse
     {
-        $message = view('auth.login-form', ['toPath' => $this->request->input('toPath')])->render();
+        $throttleRes = $this->ensureIsNotRateLimited(); // Ограничение числа попыток входа
+        $message = ! $throttleRes === false ? $throttleRes : view('auth.login-form', ['toPath' => $this->request->input('toPath')])->render();
         return $this->respond( true, __('Login title'), $message );
     }
 
@@ -213,7 +214,14 @@ class AjaxAuthSessionController extends Controller
      */
     public function throttleKey()
     {
-        return Str::lower($this->request->input('name')).'|'.$this->request->ip();
+        /**
+         В оригинале учитывается и вводимый логин и ip:
+         */
+        //return Str::lower($this->request->input('name')).'|'.$this->request->ip();
+        /**
+        Я отслеживаю только ip:
+         */
+        return '*|'.$this->request->ip();
     }
 
 }
